@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Analise de vendas - Trabalho Impacta"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cceb52fb-1526-41a8-ab8e-9b76dd8c7073"
+  }
+}
