@@ -245,9 +245,11 @@
                 "    #\"Colunas Renomeadas1\" = Table.RenameColumns(#\"Multiplicação Inserida\",{{\"Multiplicação\", \"Valor total da compra\"}}),",
                 "    #\"Colunas Removidas\" = Table.RemoveColumns(#\"Colunas Renomeadas1\",{\"Column10\"}),",
                 "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Colunas Removidas\",#date(2020, 1, 1),#date(2024, 1, 1),Replacer.ReplaceValue,{\"Data\"}),",
-                "    #\"Colunas Renomeadas2\" = Table.RenameColumns(#\"Valor Substituído\",{{\"Valor total da compra\", \"Valor da Venda\"}, {\"Quantidade\", \"Quantidade Vendida\"}})",
+                "    #\"Colunas Renomeadas2\" = Table.RenameColumns(#\"Valor Substituído\",{{\"Valor total da compra\", \"Valor da Venda\"}, {\"Quantidade\", \"Quantidade Vendida\"}}),",
+                "    #\"Linhas em Branco Removidas\" = Table.SelectRows(#\"Colunas Renomeadas2\", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {\"\", null}))),",
+                "    #\"Linhas Filtradas\" = Table.SelectRows(#\"Linhas em Branco Removidas\", each true)",
                 "in",
-                "    #\"Colunas Renomeadas2\""
+                "    #\"Linhas Filtradas\""
               ],
               "type": "m"
             }
