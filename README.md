@@ -7,9 +7,9 @@
 
 
 <p align="center">Nesse projeto foi usado:
-- Power BI
-- Power Query
-- Excel
+<br>- Power BI</br>
+<br>- Power Query</br>
+<br>- Excel</br>
 </p>
 
 <p align="center">A base de dados foi originada do site https://www.hashtagtreinamentos.com/bases-de-dados-para-praticar-power-bi </p>
