@@ -12,4 +12,4 @@
 <br>- Excel</br>
 </p>
 
-<p align="center">A base de dados foi originada do site https://www.hashtagtreinamentos.com/bases-de-dados-para-praticar-power-bi </p>
+<p align="center">A base de dados utilizada foi originada do site https://www.hashtagtreinamentos.com/bases-de-dados-para-praticar-power-bi </p>
