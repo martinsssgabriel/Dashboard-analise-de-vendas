@@ -123,7 +123,7 @@
                     }
                   },
                   {
-                    "Comissão a pagar (5% em cima do faturamento mensal))": {
+                    "Comissão a pagar": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
