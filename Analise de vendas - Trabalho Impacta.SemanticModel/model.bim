@@ -1943,9 +1943,24 @@
                 "    #\"Valor Substituído\" = Table.ReplaceValue(#\"Colunas Removidas\",#date(2020, 1, 1),#date(2024, 1, 1),Replacer.ReplaceValue,{\"Data\"}),",
                 "    #\"Colunas Renomeadas2\" = Table.RenameColumns(#\"Valor Substituído\",{{\"Valor total da compra\", \"Valor da Venda\"}, {\"Quantidade\", \"Quantidade Vendida\"}}),",
                 "    #\"Linhas em Branco Removidas\" = Table.SelectRows(#\"Colunas Renomeadas2\", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {\"\", null}))),",
-                "    #\"Linhas Filtradas\" = Table.SelectRows(#\"Linhas em Branco Removidas\", each true)",
+                "    #\"Linhas Filtradas\" = Table.SelectRows(#\"Linhas em Branco Removidas\", each true),",
+                "    #\"Tipo Alterado com Localidade\" = Table.TransformColumnTypes(#\"Linhas Filtradas\", {{\"Loja\", type text}}, \"pt-BR\"),",
+                "    #\"Valor Substituído1\" = Table.ReplaceValue(#\"Tipo Alterado com Localidade\",\"Salvador - BA\",\"Bahia\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído2\" = Table.ReplaceValue(#\"Valor Substituído1\",\"São Paulo - SP\",\"São Paulo\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído3\" = Table.ReplaceValue(#\"Valor Substituído2\",\"Curitiba - PR\",\"Paraná\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído4\" = Table.ReplaceValue(#\"Valor Substituído3\",\"Campinas - SP\",\"São Paulo\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído5\" = Table.ReplaceValue(#\"Valor Substituído4\",\"Guarulhos - SP\",\"São Paulo\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído6\" = Table.ReplaceValue(#\"Valor Substituído5\",\"Recife - PE\",\"Pernambuco\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído7\" = Table.ReplaceValue(#\"Valor Substituído6\",\"Goiânia - GO\",\"Goiás\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído8\" = Table.ReplaceValue(#\"Valor Substituído7\",\"Niterói - RJ\",\"Rio de Janeiro\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído9\" = Table.ReplaceValue(#\"Valor Substituído8\",\"Belo Horizonte - MG\",\"Minas Gerais\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído10\" = Table.ReplaceValue(#\"Valor Substituído9\",\"Rio de Janeiro - RJ\",\"Rio de Janeiro\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído11\" = Table.ReplaceValue(#\"Valor Substituído10\",\"Porto Alegre - RS\",\"Rio Grande do Sul\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído12\" = Table.ReplaceValue(#\"Valor Substituído11\",\"Nova Iguaçu - RJ\",\"Rio de Janeiro\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Valor Substituído13\" = Table.ReplaceValue(#\"Valor Substituído12\",\"Niterói - RJ\",\"Rio de Janeiro\",Replacer.ReplaceText,{\"Loja\"}),",
+                "    #\"Linhas Filtradas1\" = Table.SelectRows(#\"Valor Substituído13\", each true)",
                 "in",
-                "    #\"Linhas Filtradas\""
+                "    #\"Linhas Filtradas1\""
               ],
               "type": "m"
             }
